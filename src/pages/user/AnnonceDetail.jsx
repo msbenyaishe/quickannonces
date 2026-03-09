@@ -50,24 +50,29 @@ export default function AnnonceDetail() {
               borderRadius: "var(--radius-lg)", 
               overflow: "hidden", 
               marginBottom: "32px", 
-              padding: "24px" 
+              padding: "32px" 
             }}>
               <div style={{ 
-                minHeight: "360px", 
-                maxHeight: "500px", 
+                minHeight: "400px", 
+                maxHeight: "600px", 
                 display: "flex", 
                 alignItems: "center", 
                 justifyContent: "center", 
                 position: "relative",
                 background: "var(--bg-soft)",
                 borderRadius: "var(--radius-md)",
-                padding: "20px" 
+                padding: "40px" 
               }}>
                  {photos.length > 0 ? (
                     <img
                       src={photos[activePhoto]}
                       alt={annonce.titre}
-                      style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                      style={{ 
+                        maxWidth: "100%", 
+                        maxHeight: "100%", 
+                        objectFit: "contain",
+                        borderRadius: "var(--radius-sm)"
+                      }}
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "https://images.unsplash.com/photo-1572375927902-1c094830d93a?q=80&w=800&auto=format&fit=crop";
@@ -82,9 +87,9 @@ export default function AnnonceDetail() {
               
               {photos.length > 1 && (
                 <div className="flex gap-2" style={{ 
-                  padding: "16px 0", 
+                  padding: "20px 0 0", 
                   background: "#fff", 
-                  marginTop: "12px",
+                  marginTop: "16px",
                   overflowX: "auto",
                   borderTop: "none"
                 }}>
