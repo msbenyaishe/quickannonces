@@ -11,13 +11,11 @@ export default function AdminSidebar({ isOpen, toggleSidebar }) {
 
   return (
     <aside className={`admin-sidebar ${isOpen ? "open" : ""}`}>
-      <div className="admin-brand">
-        <div className="brand-logo" style={{ width: "30px", height: "30px", fontSize: "12px" }}>QA</div>
-        <span className="brand-name">Admin</span>
+      {/* Mobile Close Button */}
+      <div className="show-on-mobile" style={{ padding: "16px", borderBottom: "1px solid var(--border-light)", display: "flex", justifyContent: "flex-end" }}>
         <button 
           onClick={toggleSidebar} 
-          className="show-on-mobile" 
-          style={{ marginLeft: "auto", background: "none", border: "none", cursor: "pointer", fontSize: "18px", color: "var(--text-muted)" }}
+          style={{ background: "none", border: "none", cursor: "pointer", fontSize: "20px", color: "var(--text-muted)" }}
         >
           ✕
         </button>

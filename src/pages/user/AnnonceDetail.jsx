@@ -65,7 +65,13 @@ export default function AnnonceDetail() {
               </div>
               
               {photos.length > 1 && (
-                <div className="flex gap-2" style={{ padding: "16px", background: "#fff", borderTop: "1px solid var(--border-light)", overflowX: "auto" }}>
+                <div className="flex gap-2" style={{ 
+                  padding: "16px 0", 
+                  background: "#fff", 
+                  marginTop: "12px",
+                  overflowX: "auto",
+                  borderTop: "none"
+                }}>
                   {photos.map((p, idx) => (
                     <div 
                       key={idx} 
