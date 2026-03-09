@@ -151,6 +151,7 @@ export default function Publier() {
                     <option value="real-estate">Real Estate</option>
                     <option value="electronics">Electronics</option>
                     <option value="housing">Housing</option>
+                    <option value="jobs">Jobs</option>
                   </select>
                </div>
                <div className="form-group">
