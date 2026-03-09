@@ -1,15 +1,27 @@
 import { useSelector } from "react-redux";
 import { selectAuthUser } from "../../features/auth/authSlice";
 
-export default function AdminHeader() {
+export default function AdminHeader({ toggleSidebar }) {
   const user = useSelector(selectAuthUser);
 
   return (
     <header className="admin-topbar">
       <div className="admin-topbar-inner">
-        <h2 style={{ fontSize: "20px", fontWeight: "600", margin: 0 }}>
-          Admin Portal
-        </h2>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+           <button 
+             onClick={toggleSidebar} 
+             className="show-on-mobile mobile-menu-toggle"
+             style={{ padding: "4px", margin: "0" }}
+           >
+             ☰
+           </button>
+           <h2 className="hide-on-mobile" style={{ fontSize: "20px", fontWeight: "600", margin: 0 }}>
+             Admin Portal
+           </h2>
+           <h2 className="show-on-mobile" style={{ fontSize: "16px", fontWeight: "600", margin: 0 }}>
+             Portal
+           </h2>
+        </div>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <span style={{ fontSize: "14px", color: "var(--muted)" }}>
             Welcome, <strong>{user?.email || "Admin"}</strong>

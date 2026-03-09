@@ -64,10 +64,9 @@ export default function Inscription() {
       background: "var(--bg-soft)"
     }}>
       <div className="container" style={{ maxWidth: "440px" }}>
-        <div className="card" style={{ 
-          padding: "40px", 
+        <div className="card auth-card" style={{ 
           borderRadius: "12px", 
-          boxShadow: "var(--shadow-lg)",
+          boxShadow: "var(--shadow-md)",
           background: "#fff",
           border: "1px solid var(--border-light)"
         }}>

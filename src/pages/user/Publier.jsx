@@ -142,7 +142,7 @@ export default function Publier() {
               />
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+            <div className="form-grid">
                <div className="form-group">
                   <label className="label" htmlFor="publier-categorie">Category</label>
                   <select id="publier-categorie" name="categorie" className="select">

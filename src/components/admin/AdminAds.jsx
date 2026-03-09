@@ -99,8 +99,8 @@ export default function AdminAds({ refreshAds }) {
       </div>
       
       <div className="card" style={{ padding: "0", borderRadius: "var(--radius-lg)", overflow: "hidden" }}>
-        <div className="table-responsive">
-          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px" }}>
+        <div className="table-scroll">
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "14px", minWidth: "800px" }}>
             <thead>
               <tr style={{ background: "var(--bg-soft)", textAlign: "left", borderBottom: "1px solid var(--border-light)" }}>
                 <th style={{ padding: "14px 20px", fontWeight: "600" }}>Item</th>

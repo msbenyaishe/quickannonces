@@ -11,13 +11,13 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="hero" style={{ padding: "80px 0 60px", borderBottom: "1px solid var(--border-light)" }}>
+      <section className="hero responsive-hero" style={{ padding: "clamp(60px, 10vw, 100px) 0 60px", borderBottom: "1px solid var(--border-light)" }}>
         <div className="container">
-          <div className="text-center" style={{ maxWidth: "700px", margin: "0 auto 40px" }}>
-            <h1 className="text-primary" style={{ fontSize: "clamp(32px, 5vw, 42px)", marginBottom: "16px" }}>
+          <div className="text-center hero-content" style={{ maxWidth: "800px", margin: "0 auto 40px" }}>
+            <h1 className="text-primary hero-title" style={{ fontSize: "clamp(28px, 6vw, 42px)", marginBottom: "16px", lineHeight: "1.2" }}>
               Find what you need <span style={{ color: "var(--accent)" }}>locally</span>
             </h1>
-            <p className="text-muted" style={{ fontSize: "16px", lineHeight: "1.6" }}>
+            <p className="text-muted hero-subtitle" style={{ fontSize: "clamp(14px, 4vw, 16px)", lineHeight: "1.6" }}>
               The simplest way to buy and sell in your community. 
               QuickAnnonce connects you with verified local ads.
             </p>

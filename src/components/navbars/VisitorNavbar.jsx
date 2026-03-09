@@ -1,7 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 export default function VisitorNavbar() {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Close menu on navigation
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const getLinkClass = (path) => {
     return location.pathname === path ? "nav-link active" : "nav-link";
@@ -15,6 +22,7 @@ export default function VisitorNavbar() {
           <span className="brand-name">Quick<span>Annonce</span></span>
         </Link>
 
+        {/* Desktop Nav */}
         <nav className="nav desktop-nav">
           <Link to="/" className={getLinkClass("/")}>Marketplace</Link>
           <Link to="/recherche" className={getLinkClass("/recherche")}>Explore</Link>
@@ -23,8 +31,23 @@ export default function VisitorNavbar() {
         </nav>
 
         <div className="header-actions">
-           {/* Mobile Menu logic could go here */}
+           <button 
+             className="mobile-menu-toggle" 
+             onClick={() => setIsOpen(!isOpen)}
+             aria-label="Toggle menu"
+           >
+             {isOpen ? "✕" : "☰"}
+           </button>
         </div>
+
+        {/* Mobile Nav Overlay */}
+        <nav className={`mobile-nav ${isOpen ? "open" : ""}`}>
+          <Link to="/" className={getLinkClass("/")}>Marketplace</Link>
+          <Link to="/recherche" className={getLinkClass("/recherche")}>Explore</Link>
+          <hr style={{ border: "none", borderTop: "1px solid var(--border-light)", margin: "8px 0" }} />
+          <Link to="/connexion" className={getLinkClass("/connexion")}>Sign In</Link>
+          <Link to="/inscription" className="btn btn-primary">Get Started</Link>
+        </nav>
       </div>
     </header>
   );
