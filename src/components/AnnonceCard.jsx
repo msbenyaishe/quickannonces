@@ -30,24 +30,6 @@ export default function AnnonceCard({ annonce }) {
           </div>
         )}
 
-        <div style={{ position: "absolute", bottom: "8px", right: "8px", zIndex: 10 }}>
-          <span
-            style={{
-              padding: "2px 6px",
-              background: "rgba(15, 23, 42, 0.8)",
-              color: "#fff",
-              borderRadius: "var(--radius-sm)",
-              fontSize: "10px",
-              fontWeight: "600",
-            }}
-          >
-            {annonce?.typeAnnonce === "vente"
-              ? "For Sale"
-              : annonce?.typeAnnonce === "location"
-              ? "Rent"
-              : "Service"}
-          </span>
-        </div>
 
         {annonce?.photos?.[0] || annonce?.images?.[0] ? (
           <img
