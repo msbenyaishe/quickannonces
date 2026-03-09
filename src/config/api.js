@@ -17,9 +17,11 @@ export const API_ENDPOINTS = {
   AUTH_CHECK: `/api/auth?action=check`,
 
   // Ads
+  ADS_BASE: `/api/ads`,
   ADS_LIST: `/api/ads?action=list`,
   ADS_CREATE: `/api/ads?action=create`,
   ADS_UPDATE_STATUS: `/api/ads?action=update_status`,
+  ADS_UPDATE: `/api/ads?action=update`,
   ADS_DELETE: `/api/ads?action=delete`,
   ADS_GET: `/api/ads?action=get`,
   UPLOAD_IMAGE: `/api/common?action=upload_image`,

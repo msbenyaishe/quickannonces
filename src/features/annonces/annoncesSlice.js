@@ -41,6 +41,12 @@ const annoncesSlice = createSlice({
     deleteAnnonce(state, action) {
       state.items = state.items.filter((a) => a.id !== action.payload);
     },
+    updateAnnonce(state, action) {
+      const index = state.items.findIndex((a) => a.id === action.payload.id);
+      if (index !== -1) {
+        state.items[index] = { ...state.items[index], ...action.payload };
+      }
+    },
     deleteAnnoncesByUser(state, action) {
       state.items = state.items.filter((a) => a.userId !== action.payload);
     },
@@ -60,6 +66,7 @@ export const {
   addAnnonce,
   updateEtat,
   deleteAnnonce,
+  updateAnnonce,
   deleteAnnoncesByUser,
   setFilters,
   resetFilters,

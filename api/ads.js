@@ -120,6 +120,26 @@ export default async function handler(req, res) {
       return res.status(200).json({ error: false, message: 'Ad deleted' });
     }
 
+    if (action === 'update' && req.method === 'POST') {
+      const { id, title, description, price, city, status } = req.body;
+      if (!id) return res.status(400).json({ error: true, message: 'Ad ID is required' });
+      
+      const ads = await query('SELECT user_id FROM ads WHERE id = ?', [id]);
+      if (ads.length === 0) return res.status(404).json({ error: true, message: 'Ad not found' });
+      
+      // Only owner or admin can update
+      if (ads[0].user_id.toString() !== user.id.toString() && user.role !== 'admin') {
+        return res.status(403).json({ error: true, message: 'Unauthorized' });
+      }
+
+      await query(
+        'UPDATE ads SET title = ?, description = ?, price = ?, city = ?, status = ? WHERE id = ?',
+        [title, description, price, city, status, id]
+      );
+      
+      return res.status(200).json({ error: false, message: 'Ad updated successfully' });
+    }
+
     return res.status(404).json({ error: true, message: 'Action not found' });
   } catch (error) {
     console.error('Ads API Error:', error);

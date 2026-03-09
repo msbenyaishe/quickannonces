@@ -52,46 +52,48 @@ export default function AdminUsers({ refreshAds, refreshUsers }) {
              <p className="text-muted" style={{ fontWeight: "500" }}>No users registered yet.</p>
           </div>
         ) : (
-          <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "14px" }}>
-            <thead>
-              <tr style={{ background: "var(--bg-soft)", borderBottom: "1px solid var(--border-light)" }}>
-                <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)" }}>User</th>
-                <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)" }}>Role</th>
-                <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)", textAlign: "right" }}>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <tr key={user.id} style={{ borderBottom: "1px solid var(--border-light)" }}>
-                  <td style={{ padding: "14px 20px" }}>
-                    <div className="flex items-center gap-2">
-                       <div style={{ width: "28px", height: "28px", fontSize: "11px", background: "var(--bg-darker)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-light)" }}>U</div>
-                       <span style={{ fontWeight: "600" }}>{user.email}</span>
-                    </div>
-                  </td>
-                  <td style={{ padding: "14px 20px" }}>
-                    <span className="badge" style={{
-                      background: user.role === "admin" ? "var(--primary-soft)" : "var(--bg-darker)",
-                      color: user.role === "admin" ? "var(--primary)" : "var(--text-muted)"
-                    }}>
-                      {user.role}
-                    </span>
-                  </td>
-                  <td style={{ padding: "14px 20px", textAlign: "right" }}>
-                    {user.role !== "admin" && (
-                      <button
-                        className="btn btn-ghost"
-                        style={{ padding: "5px 10px", fontSize: "12px", color: "var(--danger)", border: "none" }}
-                        onClick={() => handleDeleteUser(user.id, user.email)}
-                      >
-                        Delete
-                      </button>
-                    )}
-                  </td>
+          <div className="table-responsive">
+            <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "14px" }}>
+              <thead>
+                <tr style={{ background: "var(--bg-soft)", borderBottom: "1px solid var(--border-light)" }}>
+                  <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)" }}>User</th>
+                  <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)" }}>Role</th>
+                  <th style={{ padding: "14px 20px", fontWeight: "600", color: "var(--text-muted)", textAlign: "right" }}>Actions</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {users.map((user) => (
+                  <tr key={user.id} style={{ borderBottom: "1px solid var(--border-light)" }}>
+                    <td style={{ padding: "14px 20px" }}>
+                      <div className="flex items-center gap-2">
+                         <div style={{ width: "28px", height: "28px", fontSize: "11px", background: "var(--bg-darker)", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-light)" }}>U</div>
+                         <span style={{ fontWeight: "600" }}>{user.email}</span>
+                      </div>
+                    </td>
+                    <td style={{ padding: "14px 20px" }}>
+                      <span className="badge" style={{
+                        background: user.role === "admin" ? "var(--primary-soft)" : "var(--bg-darker)",
+                        color: user.role === "admin" ? "var(--primary)" : "var(--text-muted)"
+                      }}>
+                        {user.role}
+                      </span>
+                    </td>
+                    <td style={{ padding: "14px 20px", textAlign: "right" }}>
+                      {user.role !== "admin" && (
+                        <button
+                          className="btn btn-ghost"
+                          style={{ padding: "5px 10px", fontSize: "12px", color: "var(--danger)", border: "none" }}
+                          onClick={() => handleDeleteUser(user.id, user.email)}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

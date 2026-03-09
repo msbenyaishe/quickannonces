@@ -1,7 +1,8 @@
 .admin-layout {
   display: flex;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100vw;
   overflow: hidden;
   background: #f8fafc;
 }
@@ -60,6 +61,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-width: 0; /* Critical for flex child overflow */
 }
 
 .admin-topbar {
@@ -82,5 +84,39 @@
 .admin-content {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 32px;
 }
+
+/* Responsive Table Utility */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive table {
+  min-width: 600px; /* Ensure table elements don't squash too much */
+}
+
+@media (max-width: 768px) {
+  .admin-sidebar {
+    position: fixed;
+    left: -260px;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+  
+  .admin-sidebar.open {
+    left: 0;
+  }
+  
+  .admin-content {
+    padding: 20px;
+  }
+  
+  .admin-topbar {
+    padding: 0 20px;
+  }
+}
+

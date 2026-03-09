@@ -81,3 +81,17 @@ export async function deleteAd(adId) {
   });
 }
 
+/**
+ * Update an ad (full update)
+ */
+export async function updateAd(adId, adData) {
+  const response = await apiRequest(API_ENDPOINTS.ADS_UPDATE, {
+    method: 'POST',
+    body: JSON.stringify({
+      id: adId,
+      ...adData
+    }),
+  });
+  return response.data;
+}
+

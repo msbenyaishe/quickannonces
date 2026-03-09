@@ -23,7 +23,6 @@ export default function Footer() {
           <div className="flex" style={{ flexDirection: "column", gap: "10px" }}>
             <h4 style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "0.05em", color: "var(--text-muted)", marginBottom: "4px" }}>Links</h4>
             <a href="#" style={{ fontSize: "13px", color: "var(--text-light)" }}>Service Status</a>
-            <a href="/admin" style={{ fontSize: "13px", color: "var(--text-light)" }}>Admin Panel</a>
             <a href="#" style={{ fontSize: "13px", color: "var(--text-light)" }}>Help Center</a>
           </div>
 
