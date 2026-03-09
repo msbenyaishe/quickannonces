@@ -45,8 +45,24 @@ export default function AnnonceDetail() {
           {/* Main Content */}
           <div>
             {/* Gallery */}
-            <div className="card annonce-detail-gallery" style={{ background: "var(--bg-soft)", borderRadius: "var(--radius-lg)", overflow: "hidden", marginBottom: "32px", padding: "0" }}>
-              <div style={{ minHeight: "360px", maxHeight: "500px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", padding: "20px" }}>
+            <div className="card annonce-detail-gallery" style={{ 
+              background: "#fff", 
+              borderRadius: "var(--radius-lg)", 
+              overflow: "hidden", 
+              marginBottom: "32px", 
+              padding: "24px" 
+            }}>
+              <div style={{ 
+                minHeight: "360px", 
+                maxHeight: "500px", 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center", 
+                position: "relative",
+                background: "var(--bg-soft)",
+                borderRadius: "var(--radius-md)",
+                padding: "20px" 
+              }}>
                  {photos.length > 0 ? (
                     <img
                       src={photos[activePhoto]}
