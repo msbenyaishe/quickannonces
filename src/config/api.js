@@ -101,7 +101,12 @@ export async function apiRequest(url, options = {}) {
 
     return data;
   } catch (error) {
-    console.error('API request failed:', error);
+    // 401s are expected (e.g. unauthenticated session check) — use warn, not error
+    if (error.message === 'Unauthorized' || error.message?.includes('401')) {
+      console.warn('API request returned unauthorized:', url);
+    } else {
+      console.error('API request failed:', error);
+    }
     throw error;
   }
 }
