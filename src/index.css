@@ -446,13 +446,13 @@ img {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin-left: auto;
 }
 
 .header-actions {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-left: auto;
 }
 
 /* --- FOOTER --- */
