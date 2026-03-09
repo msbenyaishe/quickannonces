@@ -634,5 +634,12 @@ img {
   
   .annonce-detail-gallery {
     margin-bottom: 20px !important;
+    min-height: 300px !important;
+    padding: 16px !important;
+  }
+
+  .annonce-detail-gallery img {
+    max-height: 320px !important;
+    width: 100% !important;
   }
 }
