@@ -129,8 +129,7 @@ export default function SearchBar() {
             </div>
           </div>
           
-          <div className="mt-4 flex justify-between items-center">
-            <button onClick={handleReset} style={{ background: "none", border: "none", fontSize: "13px", color: "var(--text-light)", cursor: "pointer", fontWeight: "600" }}>Reset Filters</button>
+          <div className="mt-4 flex justify-end items-center">
             <button onClick={() => setShowFilters(false)} className="btn btn-primary" style={{ padding: "8px 20px" }}>Apply</button>
           </div>
         </div>
