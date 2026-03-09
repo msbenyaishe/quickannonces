@@ -67,8 +67,10 @@ export default function EditAdModal({ ad, isOpen, onClose, onSave }) {
 
         <form onSubmit={handleSubmit} style={{ padding: "24px" }}>
           <div style={{ marginBottom: "16px" }}>
-            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Title</label>
+            <label htmlFor={`edit-title-${ad?.id}`} style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Title</label>
             <input 
+              id={`edit-title-${ad?.id}`}
+              name="title"
               type="text" 
               className="form-input" 
               value={formData.title}
@@ -80,8 +82,10 @@ export default function EditAdModal({ ad, isOpen, onClose, onSave }) {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "16px" }}>
             <div>
-              <label style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Price (MAD)</label>
+              <label htmlFor={`edit-price-${ad?.id}`} style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Price (MAD)</label>
               <input 
+                id={`edit-price-${ad?.id}`}
+                name="price"
                 type="number" 
                 className="form-input" 
                 value={formData.price}
@@ -91,8 +95,10 @@ export default function EditAdModal({ ad, isOpen, onClose, onSave }) {
               />
             </div>
             <div>
-              <label style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>City</label>
+              <label htmlFor={`edit-city-${ad?.id}`} style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>City</label>
               <input 
+                id={`edit-city-${ad?.id}`}
+                name="city"
                 type="text" 
                 className="form-input" 
                 value={formData.city}
@@ -104,8 +110,10 @@ export default function EditAdModal({ ad, isOpen, onClose, onSave }) {
           </div>
 
           <div style={{ marginBottom: "16px" }}>
-            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Status</label>
+            <label htmlFor={`edit-status-${ad?.id}`} style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Status</label>
             <select 
+              id={`edit-status-${ad?.id}`}
+              name="status"
               className="form-select" 
               value={formData.status}
               onChange={(e) => setFormData({...formData, status: e.target.value})}
@@ -118,8 +126,10 @@ export default function EditAdModal({ ad, isOpen, onClose, onSave }) {
           </div>
 
           <div style={{ marginBottom: "24px" }}>
-            <label style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Description</label>
+            <label htmlFor={`edit-description-${ad?.id}`} style={{ display: "block", fontSize: "13px", fontWeight: "600", marginBottom: "6px", color: "var(--text-muted)" }}>Description</label>
             <textarea 
+              id={`edit-description-${ad?.id}`}
+              name="description"
               className="form-input" 
               rows="4"
               value={formData.description}

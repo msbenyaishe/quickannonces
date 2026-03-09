@@ -131,8 +131,9 @@ export default function Publier() {
             <h3 style={{ fontSize: "18px", marginBottom: "24px", color: "var(--primary)" }}>Listing Details</h3>
             
             <div className="form-group">
-              <label className="label">Announcement Title</label>
+              <label className="label" htmlFor="publier-titre">Announcement Title</label>
               <input
+                id="publier-titre"
                 name="titre"
                 type="text"
                 required
@@ -143,8 +144,8 @@ export default function Publier() {
 
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
                <div className="form-group">
-                  <label className="label">Category</label>
-                  <select name="categorie" className="select">
+                  <label className="label" htmlFor="publier-categorie">Category</label>
+                  <select id="publier-categorie" name="categorie" className="select">
                     <option value="">Select Category</option>
                     <option value="vehicles">Vehicles</option>
                     <option value="real-estate">Real Estate</option>
@@ -153,16 +154,17 @@ export default function Publier() {
                   </select>
                </div>
                <div className="form-group">
-                  <label className="label">Listing Type</label>
-                  <select name="typeAnnonce" required className="select">
+                  <label className="label" htmlFor="publier-type">Listing Type</label>
+                  <select id="publier-type" name="typeAnnonce" required className="select">
                     <option value="vente">For Sale</option>
                     <option value="location">For Rent</option>
                     <option value="service">Service</option>
                   </select>
                </div>
                <div className="form-group">
-                  <label className="label">Price (MAD)</label>
+                  <label className="label" htmlFor="publier-prix">Price (MAD)</label>
                   <input
+                    id="publier-prix"
                     name="prix"
                     type="number"
                     required
@@ -171,8 +173,9 @@ export default function Publier() {
                   />
                </div>
                <div className="form-group">
-                  <label className="label">Location (City)</label>
+                  <label className="label" htmlFor="publier-ville">Location (City)</label>
                   <input
+                    id="publier-ville"
                     name="ville"
                     type="text"
                     required
@@ -183,8 +186,9 @@ export default function Publier() {
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="label">Item Description</label>
+              <label className="label" htmlFor="publier-description">Item Description</label>
               <textarea
+                id="publier-description"
                 name="description"
                 rows="5"
                 className="textarea"
@@ -209,6 +213,8 @@ export default function Publier() {
                <div style={{ fontWeight: "600", fontSize: "14px", color: "var(--text)" }}>Upload photos</div>
                <div style={{ fontSize: "12px", color: "var(--text-light)", marginTop: "4px" }}>JPEGs, PNGs up to 5MB</div>
                <input
+                 id="publier-photos"
+                 name="photos"
                  type="file"
                  accept="image/*"
                  multiple

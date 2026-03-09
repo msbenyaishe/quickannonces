@@ -39,6 +39,8 @@ export default function SearchBar() {
       }}>
         <div className="flex items-center w-full" style={{ flex: 1, paddingInline: "16px" }}>
           <input
+            id="search-keyword"
+            name="keyword"
             type="text"
             className="input"
             style={{ border: "none", height: "42px", paddingLeft: "0", background: "transparent", boxShadow: "none" }}
@@ -72,8 +74,10 @@ export default function SearchBar() {
         <div className="card mt-4" style={{ padding: "24px", borderRadius: "var(--radius-lg)" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px" }}>
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="label">Category</label>
+              <label className="label" htmlFor="filter-category">Category</label>
               <select 
+                id="filter-category"
+                name="categorie"
                 className="select" 
                 value={filters.categorie || ""} 
                 onChange={(e) => handleFilterChange("categorie", e.target.value)}
@@ -84,8 +88,10 @@ export default function SearchBar() {
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="label">City</label>
+              <label className="label" htmlFor="filter-city">City</label>
               <input 
+                id="filter-city"
+                name="ville"
                 type="text" 
                 className="input" 
                 placeholder="Ex: Casablanca" 
@@ -95,8 +101,10 @@ export default function SearchBar() {
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="label">Type</label>
+              <label className="label" htmlFor="filter-type">Type</label>
               <select 
+                id="filter-type"
+                name="typeAnnonce"
                 className="select" 
                 value={filters.typeAnnonce || ""} 
                 onChange={(e) => handleFilterChange("typeAnnonce", e.target.value)}
@@ -108,8 +116,10 @@ export default function SearchBar() {
             </div>
 
             <div className="form-group" style={{ marginBottom: 0 }}>
-              <label className="label">Max Price</label>
+              <label className="label" htmlFor="filter-max-price">Max Price</label>
               <input 
+                id="filter-max-price"
+                name="prixMax"
                 type="number" 
                 className="input" 
                 placeholder="MAD" 

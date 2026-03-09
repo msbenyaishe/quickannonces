@@ -1,5 +1,6 @@
 import { query } from './utils/db.js';
 import { requireAuth, getAuthUser } from './utils/auth.js';
+import { applyCors } from './utils/cors.js';
 
 // Helper to safely parse JSON (SQL longtext can sometimes return Buffer or double-stringified JSON)
 const safeParse = (input, fallback = []) => {
@@ -27,6 +28,7 @@ const safeParse = (input, fallback = []) => {
 };
 
 export default async function handler(req, res) {
+  if (applyCors(req, res)) return;
   const { action } = req.query;
 
   try {

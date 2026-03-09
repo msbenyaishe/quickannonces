@@ -1,6 +1,7 @@
 /* eslint-env node */
 import { query } from './utils/db.js';
 import { requireAuth } from './utils/auth.js';
+import { applyCors } from './utils/cors.js';
 
 import { v2 as cloudinary } from 'cloudinary';
 
@@ -12,6 +13,7 @@ cloudinary.config({
 });
 
 export default async function handler(req, res) {
+  if (applyCors(req, res)) return;
   const { action } = req.query;
 
   try {

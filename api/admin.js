@@ -1,8 +1,9 @@
-/* eslint-env node */
 import { query } from './utils/db.js';
 import { requireAuth } from './utils/auth.js';
+import { applyCors } from './utils/cors.js';
 
 export default async function handler(req, res) {
+  if (applyCors(req, res)) return;
   const { action } = req.query;
   const user = requireAuth(req, res);
   if (!user) return;

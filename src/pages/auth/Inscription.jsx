@@ -93,8 +93,10 @@ export default function Inscription() {
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label className="label">Email Address</label>
+              <label className="label" htmlFor="register-email">Email Address</label>
               <input
+                id="register-email"
+                name="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -105,8 +107,10 @@ export default function Inscription() {
             </div>
 
             <div className="form-group">
-              <label className="label">Password</label>
+              <label className="label" htmlFor="register-password">Password</label>
               <input
+                id="register-password"
+                name="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -118,8 +122,10 @@ export default function Inscription() {
             </div>
 
             <div className="form-group" style={{ marginBottom: "32px" }}>
-              <label className="label">Confirm Password</label>
+              <label className="label" htmlFor="register-confirm-password">Confirm Password</label>
               <input
+                id="register-confirm-password"
+                name="confirmPassword"
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}

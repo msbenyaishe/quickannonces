@@ -100,8 +100,10 @@ export default function Connexion() {
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label className="label">Email Address</label>
+              <label className="label" htmlFor="login-email">Email Address</label>
               <input
+                id="login-email"
+                name="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -113,10 +115,12 @@ export default function Connexion() {
 
             <div className="form-group" style={{ marginBottom: "32px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "6px" }}>
-                <label className="label" style={{ marginBottom: 0 }}>Password</label>
+                <label className="label" htmlFor="login-password" style={{ marginBottom: 0 }}>Password</label>
                 <Link to="#" style={{ fontSize: "12px", color: "var(--accent)", fontWeight: "600" }}>Forgot password?</Link>
               </div>
               <input
+                id="login-password"
+                name="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

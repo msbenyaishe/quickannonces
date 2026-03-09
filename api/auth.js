@@ -2,8 +2,10 @@
 import bcrypt from 'bcryptjs';
 import { query } from './utils/db.js';
 import { signToken, setAuthCookie, clearAuthCookie, requireAuth } from './utils/auth.js';
+import { applyCors } from './utils/cors.js';
 
 export default async function handler(req, res) {
+  if (applyCors(req, res)) return;
   const { action } = req.query;
 
   try {
