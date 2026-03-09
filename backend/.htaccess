@@ -1,0 +1,27 @@
+# PHP Configuration for InfinityFree
+# Force PHP execution
+
+# Enable PHP (InfinityFree specific)
+AddType application/x-httpd-php .php
+AddHandler application/x-httpd-php .php
+
+# Alternative if above doesn't work (uncomment if needed)
+# <FilesMatch "\.php$">
+#     SetHandler application/x-httpd-php
+# </FilesMatch>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "\.(sql|log|ini)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
