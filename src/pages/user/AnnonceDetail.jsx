@@ -2,13 +2,17 @@ import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAnnonceById } from "../../features/annonces/annoncesSelectors";
 import { selectAuthUser } from "../../features/auth/authSlice";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function AnnonceDetail() {
   const { id } = useParams();
   const annonce = useSelector((state) => selectAnnonceById(state, id));
   const currentUser = useSelector(selectAuthUser);
   const [activePhoto, setActivePhoto] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const isOwner = currentUser && annonce && (annonce.userId === currentUser.id.toString());
   const isAdmin = currentUser && currentUser.role === "admin";
