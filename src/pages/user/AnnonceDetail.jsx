@@ -41,11 +41,11 @@ export default function AnnonceDetail() {
            </Link>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: "48px", alignItems: "start" }}>
+        <div className="annonce-detail-grid">
           {/* Main Content */}
           <div>
             {/* Gallery */}
-            <div className="card" style={{ background: "var(--bg-soft)", borderRadius: "var(--radius-lg)", overflow: "hidden", marginBottom: "32px", padding: "0" }}>
+            <div className="card annonce-detail-gallery" style={{ background: "var(--bg-soft)", borderRadius: "var(--radius-lg)", overflow: "hidden", marginBottom: "32px", padding: "0" }}>
               <div style={{ minHeight: "360px", maxHeight: "500px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", padding: "20px" }}>
                  {photos.length > 0 ? (
                     <img
@@ -125,16 +125,11 @@ export default function AnnonceDetail() {
           </div>
 
           {/* Sidebar */}
-          <aside style={{ position: "sticky", top: "100px" }}>
+          <aside className="annonce-detail-sidebar" style={{ position: "sticky", top: "100px" }}>
              <div className="card" style={{ padding: "24px", borderRadius: "var(--radius-lg)" }}>
                 <div className="text-muted" style={{ fontSize: "12px", marginBottom: "4px" }}>Price</div>
                 <div className="text-primary" style={{ fontSize: "28px", fontWeight: "700", marginBottom: "24px" }}>
                    {annonce.prix ? annonce.prix.toLocaleString() : "0"} <span style={{ fontSize: "14px", color: "var(--text-light)" }}>MAD</span>
-                </div>
-
-                <div className="flex" style={{ flexDirection: "column", gap: "12px", marginBottom: "24px" }}>
-                   <button className="btn btn-primary" style={{ width: "100%" }}>Contact Seller</button>
-                   <button className="btn btn-ghost" style={{ width: "100%" }}>Save Listing</button>
                 </div>
 
                 <hr style={{ border: "none", borderTop: "1px solid var(--border-light)", marginBottom: "24px" }} />
