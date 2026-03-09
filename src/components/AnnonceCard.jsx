@@ -34,6 +34,10 @@ export default function AnnonceCard({ annonce }) {
           <img
             src={annonce.photos?.[0] || annonce.images?.[0]}
             alt={annonce.titre}
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = "https://images.unsplash.com/photo-1572375927902-1c094830d93a?q=80&w=600&auto=format&fit=crop";
+            }}
           />
         ) : (
           <div className="flex items-center justify-center w-full" style={{ 
@@ -41,7 +45,8 @@ export default function AnnonceCard({ annonce }) {
             fontSize: "11px", 
             color: "var(--text-light)",
             textTransform: "uppercase",
-            letterSpacing: "0.05em"
+            letterSpacing: "0.05em",
+            background: "var(--bg-darker)"
           }}>
             No image
           </div>

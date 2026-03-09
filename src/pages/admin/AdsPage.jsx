@@ -11,20 +11,27 @@ export default function AdsPage() {
     try {
       const ads = await fetchAds({ status: 'all' });
       const reduxAds = ads.map((ad) => {
-        const images = ad.photos || ad.images || [];
+        const rawImages = ad.photos || ad.images || ad.PHOTOS || ad.IMAGES || [];
+        const photosArray = Array.isArray(rawImages) 
+          ? rawImages 
+          : (typeof rawImages === 'string' && rawImages.startsWith('[') 
+              ? JSON.parse(rawImages) 
+              : (rawImages ? [rawImages] : []));
+
         return {
           id: ad.id.toString(),
-          titre: ad.title,
+          titre: ad.title || ad.titre,
           description: ad.description,
           typeAnnonce: ad.type_annonce,
           categorieId: ad.category,
           sousCategorieId: ad.subcategory,
-          prix: parseFloat(ad.price),
-          ville: ad.city,
-          photos: Array.isArray(images) ? images : [],
-          userId: ad.user_id.toString(),
-          etat: ad.status === "pending" ? "en_attente" : ad.status === "accepted" ? "acceptee" : "refusee",
-          datePoster: ad.created_at,
+          prix: parseFloat(ad.price || ad.prix || 0),
+          ville: ad.city || ad.ville,
+          photos: photosArray.filter(p => typeof p === 'string' && p.length > 0),
+          userId: (ad.user_id || ad.userId || "").toString(),
+          etat: ad.status === "accepted" || ad.etat === "acceptee" ? "acceptee" : 
+                ad.status === "refused" || ad.etat === "refusee" ? "refusee" : "en_attente",
+          datePoster: ad.created_at || ad.datePoster,
         };
       });
       dispatch(setAnnonces(reduxAds));

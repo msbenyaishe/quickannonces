@@ -1,14 +1,27 @@
 import { query } from './utils/db.js';
 import { requireAuth, getAuthUser } from './utils/auth.js';
 
-// Helper to safely parse JSON
-const safeParse = (str, fallback = []) => {
-  if (!str) return fallback;
+// Helper to safely parse JSON (SQL longtext can sometimes return Buffer or double-stringified JSON)
+const safeParse = (input, fallback = []) => {
+  if (!input) return fallback;
+  
+  // Handle Buffer
+  let str = input;
+  if (Buffer.isBuffer(input)) {
+    str = input.toString('utf8');
+  }
+
+  if (typeof str !== 'string' || !str.trim()) return fallback;
+
   try {
-    const parsed = typeof str === 'string' ? JSON.parse(str) : str;
+    let parsed = JSON.parse(str);
+    // Handle double-stringified JSON
+    if (typeof parsed === 'string') {
+      parsed = JSON.parse(parsed);
+    }
     return Array.isArray(parsed) ? parsed : [parsed];
   } catch (e) {
-    console.error('JSON Parse Error:', e);
+    console.error('JSON Parse Error:', e, 'Raw Input:', str);
     return fallback;
   }
 };
@@ -81,7 +94,8 @@ export default async function handler(req, res) {
       const ads = await query('SELECT * FROM ads WHERE id = ?', [id]);
       if (ads.length === 0) return res.status(404).json({ error: true, message: 'Ad not found' });
       const ad = ads[0];
-      ad.images = safeParse(ad.images);
+      // Ensure images are parsed correctly
+      ad.images = safeParse(ad.images || ad.photos);
       return res.status(200).json({ error: false, data: ad });
     }
 

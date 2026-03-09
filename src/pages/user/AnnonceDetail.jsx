@@ -52,6 +52,10 @@ export default function AnnonceDetail() {
                       src={photos[activePhoto]}
                       alt={annonce.titre}
                       style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "https://images.unsplash.com/photo-1572375927902-1c094830d93a?q=80&w=800&auto=format&fit=crop";
+                      }}
                     />
                   ) : (
                     <div className="text-light" style={{ fontSize: "12px", textTransform: "uppercase" }}>
