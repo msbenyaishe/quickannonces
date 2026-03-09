@@ -11,7 +11,6 @@ export default function SearchBar() {
     { id: "immo", nom: "Real Estate" },
     { id: "auto", nom: "Vehicles" },
     { id: "info", nom: "Electronics" },
-    { id: "multimedia", nom: "Multimedia" },
     { id: "maison", nom: "Housing" }
   ];
 
