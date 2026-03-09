@@ -12,9 +12,7 @@ export default function SearchBar() {
     { id: "auto", nom: "Vehicles" },
     { id: "info", nom: "Electronics" },
     { id: "multimedia", nom: "Multimedia" },
-    { id: "maison", nom: "Home & Garden" },
-    { id: "loisirs", nom: "Leisure" },
-    { id: "emplois", nom: "Jobs" },
+    { id: "maison", nom: "Housing" }
   ];
 
   const handleFilterChange = (key, value) => {
