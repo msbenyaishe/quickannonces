@@ -46,53 +46,47 @@ export default function AnnonceDetail() {
           <div>
             {/* Gallery */}
             <div className="card annonce-detail-gallery" style={{ 
-              background: "#fff", 
+              background: "var(--bg-soft)", 
               borderRadius: "var(--radius-lg)", 
-              overflow: "hidden", 
               marginBottom: "32px", 
-              padding: "32px" 
+              padding: "40px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "450px",
+              position: "relative"
             }}>
-              <div style={{ 
-                minHeight: "400px", 
-                maxHeight: "600px", 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center", 
-                position: "relative",
-                background: "var(--bg-soft)",
-                borderRadius: "var(--radius-md)",
-                padding: "40px" 
+               {photos.length > 0 ? (
+                  <img
+                    src={photos[activePhoto]}
+                    alt={annonce.titre}
+                    style={{ 
+                      maxWidth: "100%", 
+                      maxHeight: "500px", 
+                      objectFit: "contain",
+                      borderRadius: "var(--radius-md)",
+                      boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)"
+                    }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = "https://images.unsplash.com/photo-1572375927902-1c094830d93a?q=80&w=800&auto=format&fit=crop";
+                    }}
+                  />
+                ) : (
+                  <div className="text-light" style={{ fontSize: "12px", textTransform: "uppercase" }}>
+                    No images
+                  </div>
+                )}
+            </div>
+            
+            {/* Thumbnails moved outside to further decouple from the main image box if needed, or kept below */}
+            {photos.length > 1 && (
+              <div className="flex gap-2" style={{ 
+                padding: "0 4px", 
+                marginBottom: "32px",
+                overflowX: "auto"
               }}>
-                 {photos.length > 0 ? (
-                    <img
-                      src={photos[activePhoto]}
-                      alt={annonce.titre}
-                      style={{ 
-                        maxWidth: "100%", 
-                        maxHeight: "100%", 
-                        objectFit: "contain",
-                        borderRadius: "var(--radius-sm)"
-                      }}
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = "https://images.unsplash.com/photo-1572375927902-1c094830d93a?q=80&w=800&auto=format&fit=crop";
-                      }}
-                    />
-                  ) : (
-                    <div className="text-light" style={{ fontSize: "12px", textTransform: "uppercase" }}>
-                      No images
-                    </div>
-                  )}
-              </div>
-              
-              {photos.length > 1 && (
-                <div className="flex gap-2" style={{ 
-                  padding: "20px 0 0", 
-                  background: "#fff", 
-                  marginTop: "16px",
-                  overflowX: "auto",
-                  borderTop: "none"
-                }}>
                   {photos.map((p, idx) => (
                     <div 
                       key={idx} 
@@ -112,8 +106,6 @@ export default function AnnonceDetail() {
                   ))}
                 </div>
               )}
-            </div>
-
             {/* Info */}
             <div style={{ padding: "0 4px" }}>
                <div className="flex items-center gap-2 mb-2">
