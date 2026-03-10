@@ -8,11 +8,11 @@ export default function SearchBar() {
   const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
-    { id: "immo", nom: "Real Estate" },
-    { id: "auto", nom: "Vehicles" },
-    { id: "info", nom: "Electronics" },
-    { id: "maison", nom: "Housing" },
-    { id: "emplois", nom: "Jobs" },
+    { id: "real_estate", nom: "Real Estate" },
+    { id: "vehicles", nom: "Vehicles" },
+    { id: "electronics", nom: "Electronics" },
+    { id: "housing", nom: "Housing" },
+    { id: "jobs", nom: "Jobs" },
   ];
 
   const handleFilterChange = (key, value) => {
