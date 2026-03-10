@@ -3,9 +3,9 @@ import { setFilters } from "../features/annonces/annoncesSlice";
 
 const categories = [
   { id: 1, label: "Vehicles", name: "vehicles" },
-  { id: 2, label: "Real Estate", name: "real-estate" },
+  { id: 2, label: "Real Estate", name: "real_estate" },
   { id: 3, label: "Electronics", name: "electronics" },
-  { id: 4, label: "Housing", name: "housing" }, 
+  { id: 4, label: "Housing", name: "housing" },
   { id: 5, label: "Jobs", name: "jobs" },
 ];
 
@@ -23,7 +23,7 @@ export default function CategoryChips() {
 
   return (
     <div className="chips">
-      {categories.map(cat => (
+      {categories.map((cat) => (
         <span
           key={cat.id}
           className={`chip ${selectedCategory === cat.name ? "active" : ""}`}
