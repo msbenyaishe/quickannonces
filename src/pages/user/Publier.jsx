@@ -148,7 +148,7 @@ export default function Publier() {
                   <select id="publier-categorie" name="categorie" className="select">
                     <option value="">Select Category</option>
                     <option value="vehicles">Vehicles</option>
-                    <option value="real-estate">Real Estate</option>
+                    <option value="real_estate">Real Estate</option>
                     <option value="electronics">Electronics</option>
                     <option value="housing">Housing</option>
                     <option value="jobs">Jobs</option>
